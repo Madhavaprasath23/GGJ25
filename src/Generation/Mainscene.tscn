@@ -3,11 +3,12 @@
 [ext_resource type="Script" path="res://src/Generation/mainscene.gd" id="1_j5pp3"]
 [ext_resource type="PackedScene" uid="uid://cxumo38shbhyd" path="res://src/Interactables/Interactables.tscn" id="2_846q8"]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" groups=["Level"]]
 script = ExtResource("1_j5pp3")
 scene = ExtResource("2_846q8")
 
 [node name="Spwaner" type="Node2D" parent="."]
+position = Vector2(0, -64)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
