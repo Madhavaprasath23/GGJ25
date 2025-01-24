@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5tt5tjh8vwna"]
+
+[ext_resource type="Script" path="res://src/Generation/mainscene.gd" id="1_j5pp3"]
+[ext_resource type="PackedScene" uid="uid://cxumo38shbhyd" path="res://src/Interactables/Interactables.tscn" id="2_846q8"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_j5pp3")
+scene = ExtResource("2_846q8")
+
+[node name="Spwaner" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
