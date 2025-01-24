@@ -5,7 +5,6 @@ class_name  Player extends CharacterBody2D
 @export var movement_weight: float = 20.0
 
 func _ready() -> void:
-	print(get_viewport_rect().size)
 	pass
 
 func _physics_process(delta: float) -> void:
