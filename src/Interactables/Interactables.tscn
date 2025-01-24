@@ -8,7 +8,7 @@ size = Vector2(128, 128)
 
 [node name="Interactables" type="Area2D" groups=["Interactables"]]
 script = ExtResource("1_ypuj8")
-Gravity = 100
+Gravity = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_e2n5v")

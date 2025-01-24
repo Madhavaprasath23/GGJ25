@@ -13,10 +13,8 @@ func _ready() -> void:
 	print(get_viewport_rect().size)
 	pass # Replace with function body.
 
-func _process(delta: float) -> void:
-	pass
-
 func _physics_process(delta: float) -> void:
+	
 	pass
 
 func _on_timer_timeout() -> void:
