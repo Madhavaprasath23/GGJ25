@@ -14,9 +14,9 @@ config/name="GGJ25: Bubbles"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
+[global_group]
 
-window/size/mode=3
+Level=""
 
 [input]
 
