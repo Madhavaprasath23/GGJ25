@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2kqt71ap3ygq"]
+
+[ext_resource type="PackedScene" uid="uid://dkae067qr3hlv" path="res://src/Interactables/Leaves/Leaf.tscn" id="1_hp1qg"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Leaf" parent="." instance=ExtResource("1_hp1qg")]
+position = Vector2(45, 71)
+
+[node name="Leaf2" parent="." instance=ExtResource("1_hp1qg")]
+position = Vector2(899, 134)
+
+[node name="Leaf3" parent="." instance=ExtResource("1_hp1qg")]
+position = Vector2(128, 133)
+
+[node name="Leaf4" parent="." instance=ExtResource("1_hp1qg")]
+position = Vector2(653, 91)
