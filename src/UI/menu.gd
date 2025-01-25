@@ -1,10 +1,13 @@
 extends Panel
 
-@export var title_text: String = ""
+@export var title_text: String = "Title"
 @export var play_text: String = "Play"
-@export var resume_text: String = "Resume"
+@export var resume_text: String = "Continue"
+@export var restart_text: String = "Try Again"
 var game_paused: bool = false
 var credits_shown: bool = false
+var game_lost: bool = false
+var game_won: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,7 +20,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#move this Inputs to the main script
 	if Input.is_action_just_pressed("ui_menu") && game_paused == false:
-		open_menu("paused")
+		open_menu("pause")
 	elif Input.is_action_just_pressed("ui_menu") && game_paused == true && credits_shown == false:
 		_on_play_resume_button_pressed()
 	elif Input.is_action_just_pressed("ui_menu") && credits_shown == true:
@@ -26,10 +29,19 @@ func _process(delta: float) -> void:
 func open_menu(state: String) -> void:
 	get_tree().paused = true
 	%PlayResumeButton.grab_focus()
-	if state == "paused":
+	if state == "pause":
 		game_paused = true
+		%PlayResumeButton.text = resume_text
 	elif state == "start":
 		%PlayResumeButton.text = play_text
+	elif state == "lose":
+		%PlayResumeButton.text = restart_text
+		game_lost = true
+	elif state == "win":
+		%PlayResumeButton.text = restart_text
+		game_won == true
+		
+		
 	%TitleLabel.text = title_text
 	visible = true
 	credits_shown = false
@@ -52,10 +64,15 @@ func _show_credits() -> void:
 
 
 func _on_play_resume_button_pressed() -> void:
+	if game_lost or game_won:
+		get_tree().reload_current_scene()
 	self.visible = false
 	get_tree().paused = false
 	if game_paused:
 		game_paused = not game_paused
+	
+	
+	
 
 
 func _close_credits() -> void:

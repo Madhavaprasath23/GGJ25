@@ -13,7 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ljogi")
 script = ExtResource("1_bx2oi")
-title_text = "ggj25"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -99,6 +98,9 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Go Back"
+
+[node name="Label" type="Label" parent="PanelContainer/TopVBoxContainer"]
+layout_mode = 2
 
 [connection signal="pressed" from="PanelContainer/TopVBoxContainer/VBoxContainer/PlayResumeButton" to="." method="_on_play_resume_button_pressed"]
 [connection signal="pressed" from="PanelContainer/TopVBoxContainer/VBoxContainer/CreditsButton" to="." method="_show_credits"]
