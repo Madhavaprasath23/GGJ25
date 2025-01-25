@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://btp77c0m26y64"]
+
+[ext_resource type="Script" path="res://src/Pickup & Sample Scenes/simple_obstacle.gd" id="1_dvatr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7tym"]
+size = Vector2(258, 42)
+
+[node name="SimpleObstacle" type="Area2D"]
+collision_layer = 3
+script = ExtResource("1_dvatr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w7tym")
+debug_color = Color(0.94902, 0, 0.478431, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

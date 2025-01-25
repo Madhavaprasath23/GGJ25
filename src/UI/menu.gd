@@ -27,12 +27,12 @@ func open_menu(state: String) -> void:
 	get_tree().paused = true
 	%PlayResumeButton.grab_focus()
 	if state == "paused":
-		%PlayResumeButton.text = resume_text
+		game_paused = true
 	elif state == "start":
 		%PlayResumeButton.text = play_text
 	%TitleLabel.text = title_text
 	visible = true
-	
+	credits_shown = false
 	
 
 func _on_quit_button_pressed() -> void:

@@ -2,7 +2,7 @@
 extends Sprite2D
 
 
-@export var radius: float = 50.0
+@export var radius: float = 40.0
 @export var color: Color = Color.AQUA
 @export var width: float = 5.0
 
