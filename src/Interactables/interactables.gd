@@ -4,6 +4,9 @@ class_name  Interactables
 @onready var Level = get_tree().get_nodes_in_group("Level")[0]
 @export var  movable = true
 
+
+
+
 func _physics_process(delta: float) -> void:
 	motion_code(delta)
 	if movable:

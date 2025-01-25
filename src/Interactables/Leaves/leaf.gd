@@ -1,5 +1,6 @@
 extends Node2D
 
+var leaf_texture_array := [preload("res://src/assets/leaf 1.png"),preload("res://src/assets/leaf 2.png")]
 
 var target_moving_speed = 64
 var steering = Vector2()
@@ -9,6 +10,7 @@ var max_force = 200
 var spwan_position = null
 var direction = Vector2()
 func _ready() -> void:
+	$Sprite2D.texture = leaf_texture_array.pick_random()
 	randomize()
 	target=get_global_mouse_position()
 	direction = (target - position).normalized()

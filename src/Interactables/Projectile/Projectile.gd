@@ -3,12 +3,15 @@ extends Interactables
 const GRAVITY = 500
 const DAMAGE = 2
 
+var projectile_texture_array := [preload("res://src/assets/rock1.png"), preload("res://src/assets/rock2.png")]
+
 var velocity = Vector2.ZERO
 var original_rotation = 0.0
 
 @onready var screen_size = get_viewport_rect().size
 var speed_factor = randi_range(3,5)
 func _ready() -> void:
+	$Sprite2D.texture = projectile_texture_array.pick_random()
 	launch(get_global_mouse_position())
 
 func motion_code(delta):

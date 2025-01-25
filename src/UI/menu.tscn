@@ -38,7 +38,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 48
-text = "Title"
+text = "Title "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -68,7 +68,7 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 5
-size_flags_vertical = 7
+size_flags_vertical = 5
 focus_next = NodePath("../CreditsButton")
 focus_previous = NodePath("../QuitButton")
 text = "Play"
@@ -77,7 +77,7 @@ text = "Play"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 5
-size_flags_vertical = 7
+size_flags_vertical = 5
 focus_next = NodePath("../QuitButton")
 focus_previous = NodePath("../PlayResumeButton")
 text = "Credits"
@@ -86,7 +86,7 @@ text = "Credits"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 5
-size_flags_vertical = 7
+size_flags_vertical = 5
 focus_next = NodePath("../PlayResumeButton")
 focus_previous = NodePath("../CreditsButton")
 text = "Quit"
@@ -95,9 +95,12 @@ text = "Quit"
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
+size_flags_horizontal = 5
+size_flags_vertical = 5
 text = "Go Back"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="PanelContainer/TopVBoxContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/TopVBoxContainer"]
 layout_mode = 2
