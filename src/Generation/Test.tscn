@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2kqt71ap3ygq"]
+
+[ext_resource type="PackedScene" uid="uid://bogafeqhqunds" path="res://src/Interactables/Projectile/Projectiles.tscn" id="1_m4img"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Interactables" parent="." instance=ExtResource("1_m4img")]
+position = Vector2(134, 429)
+Gravity = 300
+
+[node name="Spwaner" type="Node2D" parent="." groups=["Level"]]

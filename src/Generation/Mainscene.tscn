@@ -1,16 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5tt5tjh8vwna"]
+[gd_scene load_steps=5 format=3 uid="uid://b5tt5tjh8vwna"]
 
 [ext_resource type="Script" path="res://src/Generation/mainscene.gd" id="1_j5pp3"]
 [ext_resource type="PackedScene" uid="uid://cxumo38shbhyd" path="res://src/Interactables/Interactables.tscn" id="2_846q8"]
+[ext_resource type="PackedScene" uid="uid://dkae067qr3hlv" path="res://src/Interactables/Leaves/Leaf.tscn" id="3_65hro"]
+[ext_resource type="PackedScene" uid="uid://eumtty38s84c" path="res://src/Interactables/Birds/Birds.tscn" id="4_hqrop"]
 
 [node name="Level" type="Node2D" groups=["Level"]]
 script = ExtResource("1_j5pp3")
 scene = ExtResource("2_846q8")
 
 [node name="Spwaner" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, -64)
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
+
+[node name="Leaf" parent="." instance=ExtResource("3_65hro")]
+visible = false
+
+[node name="Leaf2" parent="." instance=ExtResource("3_65hro")]
+visible = false
+position = Vector2(237, 207)
+
+[node name="Leaf3" parent="." instance=ExtResource("3_65hro")]
+visible = false
+position = Vector2(617, 185)
+
+[node name="Leaf4" parent="." instance=ExtResource("3_65hro")]
+visible = false
+position = Vector2(327, 107)
+
+[node name="Leaf5" parent="." instance=ExtResource("3_65hro")]
+visible = false
+position = Vector2(674, 62)
+
+[node name="Birds" parent="." instance=ExtResource("4_hqrop")]
+Gravity = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
