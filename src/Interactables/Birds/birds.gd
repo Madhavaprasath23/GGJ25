@@ -4,15 +4,20 @@ var direction = 1
 var move_velocity = Vector2()
 var speed = 500
 var pursuve = false
-
+var start_rotation = 0
+var interacted = false
 func motion_code(delta):
 	if pursuve:
-		move_velocity = direction*speed*delta
+		move_velocity = direction*speed*delta*2
+		rotation = move_velocity.angle()
 		global_position+=move_velocity
-	else:
-		move_velocity = Vector2(direction,Gravity)*speed*delta
-		global_position+=move_velocity
-	print(global_position)
 
 func _on_timer_timeout() -> void:
 	pursuve = false
+
+
+func _on_hit_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Player") and !interacted:
+		direction = (area.global_position - global_position).normalized()
+		pursuve=true
+		interacted = true

@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5tt5tjh8vwna"]
+[gd_scene load_steps=7 format=3 uid="uid://b5tt5tjh8vwna"]
 
 [ext_resource type="Script" path="res://src/Generation/mainscene.gd" id="1_j5pp3"]
 [ext_resource type="PackedScene" uid="uid://cxumo38shbhyd" path="res://src/Interactables/Interactables.tscn" id="2_846q8"]
-[ext_resource type="PackedScene" uid="uid://dkae067qr3hlv" path="res://src/Interactables/Leaves/Leaf.tscn" id="3_65hro"]
+[ext_resource type="Script" path="res://src/Generation/temp.gd" id="4_31xw7"]
+[ext_resource type="Texture2D" uid="uid://dhdfvqetl7cdl" path="res://icon.svg" id="4_fhok1"]
 [ext_resource type="PackedScene" uid="uid://eumtty38s84c" path="res://src/Interactables/Birds/Birds.tscn" id="4_hqrop"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avcjd"]
+size = Vector2(128, 128)
 
 [node name="Level" type="Node2D" groups=["Level"]]
 script = ExtResource("1_j5pp3")
@@ -17,26 +21,18 @@ position = Vector2(0, -64)
 wait_time = 0.5
 autostart = true
 
-[node name="Leaf" parent="." instance=ExtResource("3_65hro")]
-visible = false
-
-[node name="Leaf2" parent="." instance=ExtResource("3_65hro")]
-visible = false
-position = Vector2(237, 207)
-
-[node name="Leaf3" parent="." instance=ExtResource("3_65hro")]
-visible = false
-position = Vector2(617, 185)
-
-[node name="Leaf4" parent="." instance=ExtResource("3_65hro")]
-visible = false
-position = Vector2(327, 107)
-
-[node name="Leaf5" parent="." instance=ExtResource("3_65hro")]
-visible = false
-position = Vector2(674, 62)
+[node name="Projectile Spwan" type="Node2D" parent="."]
 
 [node name="Birds" parent="." instance=ExtResource("4_hqrop")]
-Gravity = 1
+position = Vector2(67, 246)
+
+[node name="Area2D" type="Area2D" parent="." groups=["Player"]]
+script = ExtResource("4_31xw7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("4_fhok1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_avcjd")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

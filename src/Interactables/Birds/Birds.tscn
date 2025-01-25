@@ -1,15 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://eumtty38s84c"]
+[gd_scene load_steps=5 format=3 uid="uid://eumtty38s84c"]
 
 [ext_resource type="PackedScene" uid="uid://cxumo38shbhyd" path="res://src/Interactables/Interactables.tscn" id="1_ka3v6"]
 [ext_resource type="Script" path="res://src/Interactables/Birds/birds.gd" id="2_wrjqo"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvh0w"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ursjf"]
+radius = 230.0
+
 [node name="Birds" instance=ExtResource("1_ka3v6")]
 script = ExtResource("2_wrjqo")
 Gravity = 300
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_wvh0w")
 
 [node name="Timer" type="Timer" parent="." index="3"]
 wait_time = 2.0
 one_shot = true
 autostart = true
 
+[node name="Hit Area" type="Area2D" parent="." index="4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit Area" index="0"]
+position = Vector2(165, 3)
+shape = SubResource("CircleShape2D_ursjf")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Hit Area" to="." method="_on_hit_area_area_entered"]
