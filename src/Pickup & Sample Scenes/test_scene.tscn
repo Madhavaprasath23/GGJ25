@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://hpj24x766nk5"]
+
+[ext_resource type="PackedScene" uid="uid://bxlm4kb3dgqmj" path="res://src/Player/player.tscn" id="1_1kpe7"]
+[ext_resource type="PackedScene" uid="uid://btp77c0m26y64" path="res://src/Pickup & Sample Scenes/simple_obstacle.tscn" id="2_eixw4"]
+[ext_resource type="PackedScene" uid="uid://ccmvv1neo5sxl" path="res://src/Pickup & Sample Scenes/pickup.tscn" id="3_ijkbt"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="SimpleObstacle" parent="." instance=ExtResource("2_eixw4")]
+position = Vector2(961, 294)
+
+[node name="Pickup" parent="." instance=ExtResource("3_ijkbt")]
+position = Vector2(999, 515)
+
+[node name="Pickup2" parent="." instance=ExtResource("3_ijkbt")]
+position = Vector2(570, 226)
+
+[node name="Pickup3" parent="." instance=ExtResource("3_ijkbt")]
+position = Vector2(277, 501)
+
+[node name="Player" parent="." instance=ExtResource("1_1kpe7")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
