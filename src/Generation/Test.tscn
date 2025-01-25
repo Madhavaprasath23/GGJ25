@@ -1,17 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://b2kqt71ap3ygq"]
 
-[ext_resource type="PackedScene" uid="uid://dkae067qr3hlv" path="res://src/Interactables/Leaves/Leaf.tscn" id="1_hp1qg"]
+[ext_resource type="PackedScene" uid="uid://bogafeqhqunds" path="res://src/Interactables/Projectile/Projectiles.tscn" id="1_m4img"]
 
 [node name="Test" type="Node2D"]
 
-[node name="Leaf" parent="." instance=ExtResource("1_hp1qg")]
-position = Vector2(45, 71)
+[node name="Interactables" parent="." instance=ExtResource("1_m4img")]
+position = Vector2(134, 429)
+Gravity = 300
 
-[node name="Leaf2" parent="." instance=ExtResource("1_hp1qg")]
-position = Vector2(899, 134)
-
-[node name="Leaf3" parent="." instance=ExtResource("1_hp1qg")]
-position = Vector2(128, 133)
-
-[node name="Leaf4" parent="." instance=ExtResource("1_hp1qg")]
-position = Vector2(653, 91)
+[node name="Spwaner" type="Node2D" parent="." groups=["Level"]]

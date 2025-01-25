@@ -4,19 +4,20 @@ extends Node2D
 var target_moving_speed = 64
 var steering = Vector2()
 var velocity = Vector2()
-var max_force = 100
-@onready var target = Vector2(randf_range(600,1200),randf_range(700+64,800+64))
+var max_force = 200
+@onready var target = Vector2()
 var spwan_position = null
+var direction = Vector2()
 func _ready() -> void:
 	randomize()
-	print(target)
+	target=get_global_mouse_position()
+	direction = (target - position).normalized()
+	if direction.x<0:
+		scale.x*=-1
 func _physics_process(delta: float) -> void:
-	velocity = (target - position).normalized() * 100
-	var desired_velocity = (target - position).normalized() * 100
+	global_position += (direction*max_force * delta) + (Vector2(0,10)*delta)
 
-	steering = desired_velocity - velocity
-	steering = steering.limit_length(max_force)
-	steering = steering / 10
-	velocity = (velocity + steering).limit_length(max_force)
 
-	position += (velocity * delta) + (Vector2(0,10)*delta)
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	await get_tree().physics_frame
+	queue_free()
